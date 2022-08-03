@@ -1,86 +1,113 @@
-# Last week, you created your own list & dictionary. 
-# This week, we will continue to work on these--this time, running loops on them!
-# Using a loop enables you to take the same action or set of actions with every item in a list. This helps you work efficiently! 
-print("This is my exit ticket!")
+# Today you will run on loops...but this time through dictionaries! (Last week, you ran loops through lists.)
 
-# Part I. Loop through lists
-# First, we'll learn how to loop through lists!
-# Let's go back to our Spotify playlist, but this time it contains the tracklist for Beyonce's new album, Renaissance. 
-playlist = [
-  "I'm That Girl",
-  "Alien Superstar",
-  "Cuff It",
-  "Energy",
-  "Break My Soul",
-  "Church Girl",
-  "Plastic Off the Sofa",
-  "Virgo's Groove",
-  "Move",
-  "Heated",
-  "Thique",
-  "All Up in Your Mind",
-  "America Has a Problem",
-  "Pure/Honey" ,
-  "Summer Renaissance"
-  ]
+# Here's a recap of what you did weeks ago with dictionaries:
+"""" EXIT TICKET """
+# Create your food table here via key:value pairs
+# (input the food & prices from lines 73-76):
+food_prices = {
+ "Chicken" : 1.59 ,
+ "Beef" : 1.99,
+ "Cheese" : 1.00,
+ "Milk" : 2.50
+}
+print(food_prices)
 
-# Print the playlist in the line below:
-print(playlist)
+# # # Here's a way to loop through all the key-value pairs in the food_prices dictionary using the items() methods
+for food, price in food_prices.items():
+  print(f"\nFood: {food}")
+  print(f"\nPrice: {price}")
 
-# How can we print out each song on this playlist individually? Retrieving each song can take forever (imagine if there were 100 songs!). We can do this efficiently by using a loop. Here's how to do that:
-# Step 1: Define the list--we did this already!
-# Step 2: Define the loop. We will use a FOR loop. This loop will tell Python to pull a song from the tracklist & associate with the variable jam. 
-# Step 3: Print the song that's been assigned to jam
-for jam in playlist:
-  print(jam)
+food_keys = food_prices.keys()
+print(food_keys)
 
-# You can customize a message for each element in your list using f-strings
-for jam in playlist:
-  print(f"{jam} is sooo fiiire!")
+for food in food_prices.keys():
+  print(f"\n{food.title()}")
 
-# Indented lines after "for jam in playlist" are INSIDE the loop. Each indented line is executed once for each value on the list.
-# Here's an example of adding another indented line inside our loop. Note that \n prints a message in a new coding line.
-for jam in playlist:
-  print(f" {jam} is sooo fiiire!")
-  print(f" How many streams do you think will {jam} have this summer? \n")
+# # # Now, get ready to code!
+  
+# # # Make a new dictionary using these key:value pairs of average rent estimates for 1-bedroom in different Bay Area cities in July 2022 according to apartmentlist.com:
 
-# Now it's your turn to create your own list!
-# Think of at least 3 of your favorite shows right now and store the show titles in a list in the next line:
-faveshows = ["Peaky Blinders", "Doctor Who", "Dragon Ball Super", "Agents of Shield", "Moon Knight"
-]
+city_rent = {
+  "Oakland": 1573,
+  "San Jose": 2103,
+  "Richmond": 1436,
+  "Berkeley": 1715,
+  "South San Francisco": 1809,
+  "San Francisco": 2352,
+  "Hayward": 1898
+}
+print(city_rent)
 
-# Now that you've defined your list, create a FOR loop that prints an f-string of a message that includes each show in your list, modeling your code after lines 38-39. An example output could be: "{show} is the best show ever!" Write this modified loop in the next 2 lines:
-for shows in faveshows:
-  print(f"{shows} is the best show ever!")
-# Now modify your FOR loop similar to lines 43-45. Write your FOR loop again but this time add this statement in a new code line (use \n): "How many streams do you think {show}" will have this year?" Write your modified FOR loop in the next few lines:
-  for shows in faveshows:
-    print(f"How many streams do you think {shows} will have this year?")
-    
-# We can also loop through a portion of a list or a slice. Accessing a slice uses the same indexing method that we've been using to retrieve elements of a list.
-# For example, Beyonce's tracklist has 15 songs with "I'm That Girl" as the first song, which means that its index number would be 0. 
-# To generate a subset, if you want the 2nd, 3rd, & 4th item in the list, you would start the slice at index 1 and end at index 4:
-print(playlist[1:4])
-# In the next line, write down what songs showed up in the output:
-#Alien Superstar, Cuff it, Energy
+# # # # Let's use a for loop that will print each key:value pair, similar to codes in lines 16-18.
+for city, rent in city_rent.items():
+  print (f"\nCity: {city}")
+  print (f"\nRent: {rent}")
 
-# In the indexing you just did (playlist[1:4]), if you remove the first index (1), what songs do you think will be in the output? When you omit the first index like that, Python automatically starts your list at the beginning of the list:
-print(playlist[:4])
+# # # # Let's print another f-string that uses a for loop that prints all key:value pairs.
+for city, rent in city_rent.items():
+  print(f"The average rent in {city} last month was $ {rent}   .")
+
+# # # # You can also loop through all the keys in a dictionary using the keys() method:
+for city in city_rent.keys():
+  print(city.title())
+
+# # # # You can also use the keys() method to create a loop to see if a key is in the dictionary--in this case, if a the city of Alameda is in this dictionary:
+if 'Alameda' not in city_rent.keys():
+  print("We do not have info about Alameda.")
+
+# # # # How about looping through all the values in a dictionary? This can be done using the values() method:
+print("These are the average rent in some Bay Area cities last month:")
+for rent in city_rent.values():
+  print(rent)
+
+# # # # Now in the next line, create your own dictionary of your top 3 favorite restaurants and how many times you have eaten or ordered take-out/drive-through from there in the past month. For example, if you ate at Addis Ethiopian Restaurant twice in the past month, then this key:value pair would be Addis:2. Think about your three favorite restaurants (there are no right or wrong answers--it's your favorite!!) & add them to restaurant_visit dictionary:
+restaurant_visit = {
+ "Red Sea": 3,
+  "Asmara": 5,
+  "In-N-Out": 2
+}
+print(restaurant_visit)
+
+# # # # In the next line, create a for loop that prints out an f-string that says "In the past month, I have eaten out {visit} times at {restaurant}." This is similar to the code  in lines 47-48.
+for restaurant, visit in restaurant_visit.items():
+  print(f"In the past month, I have eaten out {visit} times at {restaurant}.")
 
 
-# Similarly, if you remove the second index (4), what songs do you think will be in the output? When you omit the second index, Python automatically starts counting from the first index and includes the rest of the list. So, if your first index is 2, that means that your output will start at the element at location 2 (3rd element) and then print out the rest of the list from that location:
-print(playlist[2:])
+# # # # Afterwards, create a for loop that prints out all the keys in your dictionary using the keys() method. This code is similar to lines 51-52.
+for restaurant in restaurant_visit.keys():
+  print(restaurant.title())
 
-# How about if your index has a negative number? That just means that you are counting from the back of the list. That means if you put -3, the last three songs from the list will be printed in the output:
-print(playlist[-3:])
 
-# Now let's loop through a slice!
-# Instead of looping through the entire list, you can loop through just a slice or subset of the whole list. 
-# Why should we care about being able to create a subset and running a loop through it? It allows you to use slices to process data in chunks of a size that you can specify. 
-# Here's an example of how to loop through a slice:
-print("These are the first 3 songs in Beyonce's new album:")
-for jam in playlist[:3]:
-  print(jam)
+# # # # Then, create a for loop that prints out all the values in your dictionary using the values() method. This code is similar to lines 60-61.
+for visit in restaurant_visit.values():
+  print(visit)
 
-# Now create a slice or subset of your list of favorite shows, then run a loop through your slice:
-for shows in faveshows[-3:]:
-  print(shows)
+
+# # # Have you ever heard of nesting? It's when you store multiple dictionaries in a list or a list of items as a value in a dictionary or a dictionary within another dictionary. 
+# # # Let's create a list of dictionaries of avatars--a fleet of avatars, in fact! Each avatar dictionary will include the primary element that avatar can bend naturally when they were born. If we're trying to create an Avatar game, we can also include how many points a player has to earn in order to access this particular avatar. Here are 4 dictionaries:
+avatar_0 = {'element': 'water' , 'points': 11}
+avatar_1 = {'element': 'air', 'points': 17}
+avatar_2 = {'element': 'fire', 'points': 7}
+avatar_3 = {'element': 'earth', 'points': 9}
+# # # now we can create a list of these dictionaries:
+avatars = [avatar_0, avatar_1, avatar_2, avatar_3]
+
+# # # # We can now run a loop through this list of dictionaries & print out each avatar:
+for x in avatars:
+  print(x)
+
+# # # Now let's access the last 33 reincarnations of the avatar using the range() method. First make an empty list for storing avatars:
+avatars = []
+
+# # # # now make 33 avatars:
+for avatar_number in range(33):
+  new_avatar = {'element': 'earth', 'points': 9, 'speed':     'slow'}
+  avatars.append(new_avatar)
+
+# # # # Show the first 4 avatars created using a slice
+for avatar in avatars[:5]:
+  print(avatar)
+print("...")
+
+# # # # Show how many avatars have been created with this code:
+print(f"Total number of avatars: {len(avatars)}")
